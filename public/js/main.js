@@ -23,6 +23,7 @@ navigator.mediaDevices
 
 		socket.on('user-connected', (userId) => {
 			connectToNewUser(userId, stream)
+			alert('Somebody connected', userId)
 		})
 
 		peer.on('call', (call) => {
@@ -42,15 +43,23 @@ navigator.mediaDevices
 			}
 		})
 
-		socket.on('createMessage', (message) => {
-			$('ul').append(`<li class="message"><b>user</b><br/>${message}</li>`)
+		socket.on('createMessage', (message, userId) => {
+			$('ul').append(`<li >
+								<span class="messageHeader">From <span class="messageSender">Me</span> to <span class="messageReceiver">Everyone:</span></span>
+								<span class="message">${message}
+								${new Date().toLocaleString('en-US', {
+									hour: 'numeric',
+									minute: 'numeric',
+									hour12: true,
+								})}
+							</li>`)
 			scrollToBottom()
 		})
 	})
 
 socket.on('user-disconnected', (userId) => {
 	if (peers[userId]) peers[userId].close()
-})
+})	
 
 peer.on('open', (id) => {
 	socket.emit('join-room', ROOM_ID, id)

@@ -27,17 +27,17 @@ video {
 
 .mainVideos {
 	flex-grow: 1;
-	background-color: #000;
+	background-color: #222222;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .mainControls {
+	padding: 1px 5px;
 	display: flex;
-	background-color: #1c1e20;
-	color: #d2d2d2;
-	padding: 5px;
+	background-color: #1a1a1a;
+	color: #a8a8a8;
 	justify-content: space-between;
 }
 
@@ -53,15 +53,19 @@ video {
 	padding: 8px 10px;
 	min-width: 80px;
 	cursor: pointer;
+	font-size: 12px;
+	font-weight: 500;
 }
 
 .mainControlsButton svg {
-	font-size: 24px;
+	font-size: 20px;
+	margin-bottom: 4px;
 }
 
 .mainControlsButton:hover {
-	background-color: #343434;
+	background-color: #2e2e2e;
 	border-radius: 5px;
+	color: #d5d5d5;
 }
 
 .leaveMeeting {
@@ -74,17 +78,22 @@ video {
 }
 
 .mainRight {
+	padding: 22px 18px;
 	flex: 0.2;
 	display: flex;
 	flex-direction: column;
-	background-color: #242324;
+	background-color: #ffffff;
 	border-left: 1px solid #2d3d42;
 }
 
 .mainHeader {
-	padding-top: 5px;
-	color: #f5f5f5;
 	text-align: center;
+}
+
+.mainHeader h6 {
+	font-weight: 700;
+	color: #4a4a4a;
+	font-size: 13px;
 }
 
 .mainChatWindow {
@@ -92,13 +101,32 @@ video {
 	overflow-y: auto;
 }
 
-.messages {
-	color: white;
+.messagesContainer {
 	list-style: none;
 }
 
+.messagesContainer {
+	list-style: none;
+}
+
+.message {
+	font-size: 13px;
+	display: block;
+}
+
+.messageHeader {
+	font-size: 11px;
+	color: #8086ac;
+}
+
+.messageSender {
+}
+
+.messageReceiver {
+	color: #309af6;
+}
+
 .mainMessageContainer {
-	padding: 22px 12px;
 	display: flex;
 }
 
@@ -106,5 +134,6 @@ video {
 	flex-grow: 1;
 	background-color: transparent;
 	border: none;
-	color: #f5f5f5;
+	font-size: 13px;
+	outline: 0;
 }
