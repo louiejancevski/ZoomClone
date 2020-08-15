@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	user-select: none;
 }
 #videoGrid {
 	display: flex;
@@ -34,7 +35,7 @@ video {
 }
 
 .mainControls {
-	padding: 1px 5px;
+	padding: 3px 5px 0px 5px;
 	display: flex;
 	background-color: #1a1a1a;
 	color: #a8a8a8;
@@ -51,7 +52,7 @@ video {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 8px 10px;
+	padding: 4px 22px;
 	min-width: 80px;
 	cursor: pointer;
 	font-size: 12px;
@@ -59,7 +60,7 @@ video {
 }
 
 .mainControlsButton svg {
-	font-size: 20px;
+	font-size: 19px;
 	margin-bottom: 4px;
 }
 
@@ -69,8 +70,22 @@ video {
 	color: #d5d5d5;
 }
 
+.mainControlsButtonEndMeeting {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 22px;
+	font-size: 12px;
+}
+
 .leaveMeeting {
-	color: #eb534b;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 4px 22px;
+	background-color: #b72525;
+	color: #fff;
+	border-radius: 5px;
 }
 
 .unmute,
@@ -106,21 +121,41 @@ video {
 	list-style: none;
 }
 
-.messagesContainer {
-	list-style: none;
-}
-
 .message {
 	font-size: 13px;
 	display: block;
 }
 
-.messageHeader {
-	font-size: 11px;
-	color: #8086ac;
+.messageSendingTo {
+	font-size: 12px;
+	margin-bottom: 8px;
 }
 
-.messageSender {
+.messageSendingTo span {
+	font-size: 12px;
+	margin-left: 3px;
+	background-color: #f2f2f7;
+	padding: 3px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.messageSendingTo span:hover {
+	background-color: #e7f1fd;
+	color: #2f89f2;
+}
+
+.messageSendingTo svg {
+	font-size: 10px;
+	color: #000;
+}
+
+.messageHeader {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	font-size: 11px;
+	color: #8086ac;
 }
 
 .messageReceiver {

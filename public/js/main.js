@@ -10,6 +10,7 @@ const myPeer = new Peer(undefined, {
 	host: '/',
 	port: '5000',
 })
+
 const peers = {}
 let myVideoStream
 navigator.mediaDevices
@@ -45,13 +46,23 @@ navigator.mediaDevices
 
 		socket.on('createMessage', (message, userId) => {
 			$('ul').append(`<li >
-								<span class="messageHeader">From <span class="messageSender">Me</span> to <span class="messageReceiver">Everyone:</span></span>
-								<span class="message">${message}
-								${new Date().toLocaleString('en-US', {
-									hour: 'numeric',
-									minute: 'numeric',
-									hour12: true,
-								})}
+								<span class="messageHeader">
+									<span>
+										From 
+										<span class="messageSender">Someone</span> 
+										to 
+										<span class="messageReceiver">Everyone:</span>
+									</span>
+
+									${new Date().toLocaleString('en-US', {
+										hour: 'numeric',
+										minute: 'numeric',
+										hour12: true,
+									})}
+								</span>
+
+								<span class="message">${message}</span>
+							
 							</li>`)
 			scrollToBottom()
 		})
@@ -59,7 +70,7 @@ navigator.mediaDevices
 
 socket.on('user-disconnected', (userId) => {
 	if (peers[userId]) peers[userId].close()
-})	
+})
 
 peer.on('open', (id) => {
 	socket.emit('join-room', ROOM_ID, id)
