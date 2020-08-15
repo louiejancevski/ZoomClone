@@ -46,6 +46,7 @@ video {
 }
 
 .mainControlsButton {
+	letter-spacing: 0.3px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
